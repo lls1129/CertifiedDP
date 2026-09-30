@@ -18,6 +18,7 @@ Run everything from the repository root so that `import library` works.
 | `kmeans.py` / `regression.py` | building blocks plus one-call pipelines `private_kmeans` and `private_ridge` |
 | `baselines.py` | Gaussian input perturbation, noisy AᵀA |
 | `pe_means.py` | PE-means and HDPE-means, ported to numpy from their MIT-licensed repository, with their DP accounting |
+| `datasets.py` | the 34 datasets of PE-means' Table 1, downloaded and preprocessed as in their code |
 
 ## Conventions
 
@@ -60,4 +61,8 @@ python library/tests/test_library.py        # about 3 s
 python library/examples/other_dataset.py     # sklearn digits (k-means) and diabetes (regression)
 python library/examples/regression_mnist.py  # MNIST one-vs-all ridge
 python library/examples/kmeans_mnist.py      # ours vs PE-means / HDPE-means on MNIST-LeNet (about 6 min)
+python library/examples/pe_means_table.py --seeds 3 --out results/pe_means_table.csv   # all 34 datasets (hours)
+python library/examples/pe_means_table_summary.py results/pe_means_table*.csv > results/pe_means_table.md
 ```
+
+`results/pe_means_table.md` holds the finished table (3 seeds), next to the numbers reported in their paper.
